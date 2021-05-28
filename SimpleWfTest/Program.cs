@@ -28,7 +28,7 @@ namespace SimpleWfTest
 			var syncWorkflowExecUtility = new SynchronousWorkflowExecutionUtility(host, hub);
 
 			hub.Subscribe(@event => {
-				if (@event is WorkflowCompleted) {
+				if (@event is WorkflowCompleted) { // why does this never trigger?
 					Console.WriteLine($"{nameof(HelloWorldWorkflow)} is ending");
 				}
 			});
