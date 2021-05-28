@@ -24,7 +24,7 @@ namespace SimpleWfTest
 			host.RegisterWorkflow<HelloWorldWorkflow>();
 			host.Start();
 
-			var hub = serviceProvider.GetService<ILifeCycleEventHub>();
+			var hub = serviceProvider.GetService<ILifeCycleEventHub>() as SingleNodeEventHub;
 			var syncWorkflowExecUtility = new SynchronousWorkflowExecutionUtility(host, hub);
 
 			hub.Subscribe(@event => {
